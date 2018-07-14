@@ -17,7 +17,7 @@ feature 'Proposal Notifications' do
 
     fill_in 'proposal_notification_title', with: "Thank you for supporting my proposal"
     fill_in 'proposal_notification_body', with: "Please share it with others so we can make it happen!"
-    click_button "Send message"
+    click_button "Send notification"
 
     expect(page).to have_content "Your message has been sent correctly."
     expect(page).to have_content "Thank you for supporting my proposal"
@@ -113,7 +113,7 @@ feature 'Proposal Notifications' do
     login_as(author)
     visit new_proposal_notification_path(proposal_id: proposal.id)
 
-    expect(page).to have_content "This message will be send to 7 people and it will be visible in the proposal's page"
+    expect(page).to have_content "This notification will be sent to 7 people and it will be visible in the proposal's page"
     expect(page).to have_link("the proposal's page", href: proposal_path(proposal, anchor: 'comments'))
   end
 
@@ -126,7 +126,7 @@ feature 'Proposal Notifications' do
     login_as(author)
     visit new_proposal_notification_path(proposal_id: proposal.id)
 
-    expect(page).to have_content "This message will be send to 7 people and it will be visible in the proposal's page"
+    expect(page).to have_content "This notification will be sent to 7 people and it will be visible in the proposal's page"
     expect(page).to have_link("the proposal's page", href: proposal_path(proposal, anchor: 'comments'))
   end
 
@@ -140,7 +140,7 @@ feature 'Proposal Notifications' do
     login_as(author)
     visit new_proposal_notification_path(proposal_id: proposal.id)
 
-    expect(page).to have_content "This message will be send to 14 people and it will be visible in the proposal's page"
+    expect(page).to have_content "This notification will be sent to 14 people and it will be visible in the proposal's page"
     expect(page).to have_link("the proposal's page", href: proposal_path(proposal, anchor: 'comments'))
   end
 
@@ -155,7 +155,7 @@ feature 'Proposal Notifications' do
     login_as(author)
     visit new_proposal_notification_path(proposal_id: proposal.id)
 
-    expect(page).to have_content "This message will be send to 1 people and it will be visible in the proposal's page"
+    expect(page).to have_content "This notification will be sent to 1 people and it will be visible in the proposal's page"
     expect(page).to have_link("the proposal's page", href: proposal_path(proposal, anchor: 'comments'))
   end
 
@@ -177,7 +177,7 @@ feature 'Proposal Notifications' do
       visit user_path(author)
 
       within("#proposal_#{proposal.id}") do
-        expect(page).not_to have_link "Send message"
+        expect(page).not_to have_link "Send notification"
       end
     end
 
@@ -216,7 +216,7 @@ feature 'Proposal Notifications' do
 
       fill_in 'proposal_notification_title', with: "Thank you for supporting my proposal"
       fill_in 'proposal_notification_body', with: "Please share it with others so we can make it happen!"
-      click_button "Send message"
+      click_button "Send notification"
 
       expect(page).to have_content "Your message has been sent correctly."
 
@@ -273,7 +273,7 @@ feature 'Proposal Notifications' do
 
       fill_in 'proposal_notification_title', with: "Thank you for supporting my proposal"
       fill_in 'proposal_notification_body', with: "Please share it with others so we can make it happen!"
-      click_button "Send message"
+      click_button "Send notification"
 
       expect(page).to have_content "Your message has been sent correctly."
 
@@ -323,7 +323,7 @@ feature 'Proposal Notifications' do
 
       fill_in 'proposal_notification_title', with: "Thank you for supporting my proposal"
       fill_in 'proposal_notification_body', with: "Please share it with others so we can make it happen!"
-      click_button "Send message"
+      click_button "Send notification"
 
       expect(page).to have_content "Your message has been sent correctly."
 
@@ -366,7 +366,7 @@ feature 'Proposal Notifications' do
     login_as(author)
 
     visit new_proposal_notification_path(proposal_id: proposal.id)
-    click_button "Send message"
+    click_button "Send notification"
 
     expect(page).to have_content error_message
   end
